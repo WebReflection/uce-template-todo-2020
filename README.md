@@ -1,6 +1,8 @@
 # uce-template-todo-2020
 
-## Project setup
+## [Live Demo](https://webreflection.github.io/vue-todo-2019/public/)
+
+### Project setup
 ```
 npm install
 ```
