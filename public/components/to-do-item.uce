@@ -1,0 +1,11 @@
+<to-do-item>
+<p class=text>{{item.value}}</p>
+<button class=delete onclick={{deleteItem}}>-</button>
+</to-do-item>
+<script type=module>
+var e={props:{key:0,value:""},setup:function(e){return{item:e,deleteItem:function(){var t=e.key
+e.dispatchEvent(new CustomEvent("delete",{bubbles:!0,detail:t}))}}}}
+exports.default=e
+</script>
+<style scoped>.text{width:90%;background-color:#fff;border:1px solid #d3d3d3;box-shadow:1px 1px 1px #d3d3d3;padding:12px;margin-right:10px}.delete{padding:4px 12px;cursor:pointer;background:#ff7373;border-radius:10px;box-shadow:1px 1px 1px #c70202;color:#fff;font-size:28px}.delete:hover{box-shadow:none;margin-top:1px;margin-left:1px}</style>
+<style>to-do-item{display:flex;justify-content:center;align-items:center}</style>

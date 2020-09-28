@@ -1,0 +1,56 @@
+<to-do-item>
+  <p class="text">{{item.value}}</p>
+  <button class="delete" onclick={{deleteItem}}>-</button>
+</to-do-item>
+
+<script type="module">
+  export default {
+    props: {key: 0, value: ''},
+    setup(item) {
+      return {
+        item,
+        deleteItem() {
+          const detail = item.key;
+          item.dispatchEvent(
+            new CustomEvent('delete', {bubbles: true, detail})
+          );
+        }
+      };
+    }
+  };
+</script>
+
+<style scoped>
+  .text {
+    width: 90%;
+    background-color: white;
+    border: 1px solid lightgrey;
+    box-shadow: 1px 1px 1px lightgrey;
+    padding: 12px;
+    margin-right: 10px;
+  }
+
+  .delete {
+    padding: 4px 12px;
+    cursor: pointer;
+    background: #ff7373;
+    border-radius: 10px;
+    box-shadow: 1px 1px 1px #c70202;
+    color: white;
+    font-size: 28px;
+  }
+
+  .delete:hover {
+    box-shadow: none;
+    margin-top: 1px;
+    margin-left: 1px;
+  }
+</style>
+
+<style>
+  to-do-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+</style>

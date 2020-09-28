@@ -1,47 +1,16 @@
 {
-  "name": "vue-todo-2019",
+  "name": "uce-template-todo-2020",
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
-  },
-  "dependencies": {
-    "core-js": "^2.6.5",
-    "vue": "^2.6.10"
+    "serve": "serve -p 8080 ./public",
+    "build": "npm run build:index; npm run build:to-do; npm run build:to-do-item",
+    "build:index": "uce-template --babel src/index.html -o public/index.html",
+    "build:to-do": "uce-template --babel src/components/to-do.uce -o public/components/to-do.uce",
+    "build:to-do-item": "uce-template --babel src/components/to-do-item.uce -o public/components/to-do-item.uce"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "^3.11.0",
-    "@vue/cli-plugin-eslint": "^3.11.0",
-    "@vue/cli-service": "^3.11.0",
-    "babel-eslint": "^10.0.1",
-    "eslint": "^5.16.0",
-    "eslint-plugin-vue": "^5.0.0",
-    "vue-template-compiler": "^2.6.10"
-  },
-  "eslintConfig": {
-    "root": true,
-    "env": {
-      "node": true
-    },
-    "extends": [
-      "plugin:vue/essential",
-      "eslint:recommended"
-    ],
-    "rules": {},
-    "parserOptions": {
-      "parser": "babel-eslint"
-    }
-  },
-  "postcss": {
-    "plugins": {
-      "autoprefixer": {}
-    }
-  },
-  "browserslist": [
-    "> 1%",
-    "last 2 versions"
-  ],
-  "homepage": "."
+    "serve": "^11.3.2",
+    "uce-template": "^0.1.32"
+  }
 }

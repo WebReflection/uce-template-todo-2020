@@ -1,0 +1,22 @@
+<to-do>
+<img src={{logo}} class=logo alt="uce-template logo">
+<h1 class=header>uce-template To Do</h1>
+<div class=container>
+<div class=content>
+{{list}}
+</div>
+<input type=text onkeyup={{handleKey}}>
+<button class=add onclick={{createNewToDoItem}}>+</button>
+</div>
+</to-do>
+<script type=module>
+var e=require("@uce")
+function t(){var e=r(["\n            <to-do-item .key="," .value="," />\n          "])
+return t=function(){return e},e}function r(e,t){return t||(t=e.slice(0)),Object.freeze(Object.defineProperties(e,{raw:{value:Object.freeze(t)}}))}var i={props:{list:[{id:1,text:"clean the house"},{id:2,text:"buy milk"}]},setup:function(r){var i=([].concat(r.list).pop()||{id:0}).id+1,n=function(){var e=r.querySelector('input[type="text"]'),t=e.value.trim()
+t?(e.value="",r.list=r.list.concat({id:i++,text:t})):alert("Please enter a todo!")}
+return{get list(){return r.list.map((function(r){return(0,e.html)(t(),r.id,r.text)}))},logo:"assets/logo.png",handleKey:function(e){"Enter"===e.key&&n()},createNewToDoItem:n}},onDelete:function(e){var t=e.detail
+this.list=this.list.filter((function(e){return e.id!==t}))}}
+exports.default=i
+</script>
+<style scoped>.logo{width:50px;position:relative;top:50px}.header{color:#000;font-family:-apple-system,BlinkMacSystemFont,Helvetica Neue,Helvetica,Arial,sans-serif;font-weight:400;text-transform:uppercase;margin:70px auto 30px}.add{margin:20px auto 0;display:block;padding:4px 12px;cursor:pointer;background:#73ff73;border-radius:10px;box-shadow:1px 1px 1px #47a947;color:#fff;font-size:28px}.add:hover{box-shadow:none}.container{width:80%;margin:0 auto}input{width:60%;padding:10px;font-size:1em;margin:10px auto;box-shadow:1px 3px 20px 0 rgba(0,0,0,.3)}</style>
+<style>to-do{display:block;text-align:center;border:1px solid #fff;width:80vw;height:auto;box-shadow:2px 2px 8px 0 rgba(0,0,0,.3);background:#fdfdfd;padding-bottom:60px;margin:40px auto}</style>

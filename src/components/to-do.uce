@@ -1,0 +1,117 @@
+<to-do>
+  <img src={{logo}} class='logo' alt="uce-template logo">
+  <h1 class="header">uce-template To Do</h1>
+  <div class="container">
+    <div class="content">
+      {{list}}
+    </div>
+    <input type="text" onkeyup={{handleKey}}>
+    <button class="add" onclick={{createNewToDoItem}}>+</button>
+  </div>
+</to-do>
+
+<script type="module">
+  import {html} from '@uce';
+
+  export default {
+    props: {
+      list: [
+        { id: 1, text: 'clean the house' },
+        { id: 2, text: 'buy milk' }
+      ]
+    },
+
+    setup(ToDo) {
+      let id = ([].concat(ToDo.list).pop() || {id: 0}).id + 1;
+
+      const createNewToDoItem = () => {
+        const input = ToDo.querySelector('input[type="text"]');
+        const text = input.value.trim();
+        if (!text) {
+          alert('Please enter a todo!');
+          return;
+        }
+        input.value = '';
+        ToDo.list = ToDo.list.concat({id: id++, text});
+      };
+
+      return {
+        get list() {
+          return ToDo.list.map(item => html`
+            <to-do-item .key=${item.id} .value=${item.text} />
+          `);
+        },
+        logo: 'assets/logo.png',
+        handleKey(event) {
+          if (event.key === 'Enter')
+            createNewToDoItem();
+        },
+        createNewToDoItem
+      };
+    },
+
+    onDelete({detail: id}) {
+      this.list = this.list.filter(item => item.id !== id);
+    }
+  };
+</script>
+
+<style scoped>
+  .logo {
+    width: 50px;
+    position: relative;
+    top: 50px;
+  }
+
+  .header {
+    color: black;
+    font-family: -apple-system, BlinkMacSystemFont, Helvetica Neue, Helvetica,
+      Arial, sans-serif;
+    font-weight: 400;
+    text-transform: uppercase;
+    margin: 70px auto 30px;
+  }
+
+  .add {
+    margin: 20px auto 0;
+    display: block;
+    padding: 4px 12px;
+    cursor: pointer;
+    background: #73ff73;
+    border-radius: 10px;
+    box-shadow: 1px 1px 1px #47a947;
+    color: white;
+    font-size: 28px;
+  }
+
+  .add:hover {
+    box-shadow: none;
+  }
+
+  .container {
+    width: 80%;
+    margin: 0 auto;
+  }
+
+  input {
+    width: 60%;
+    padding: 10px;
+    font-size: 1em;
+    margin: 10px auto;
+    box-shadow: 1px 3px 20px 0px rgba(0, 0, 0, 0.3);
+  }
+</style>
+
+<style>
+  to-do {
+    display: block;
+    text-align: center;
+    border: 1px solid white;
+    width: 80vw;
+    height: auto;
+    box-shadow: 2px 2px 8px 0px rgba(0, 0, 0, 0.3);
+    background: #fdfdfd;
+    padding-bottom: 60px;
+    margin: 40px auto;
+  }
+</style>
