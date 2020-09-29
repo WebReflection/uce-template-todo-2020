@@ -4,14 +4,12 @@
   "private": true,
   "scripts": {
     "serve": "serve -p 8080 ./public",
-    "build": "npm run build:uce; npm run build:index; npm run build:to-do; npm run build:to-do-item",
+    "build": "npm run build:uce; npm run build:html",
     "build:uce": "cp node_modules/uce-template/min.js public/js/uce-template.js",
-    "build:index": "uce-template --babel src/index.html -o public/index.html",
-    "build:to-do": "uce-template --babel src/components/to-do.uce -o public/components/to-do.uce",
-    "build:to-do-item": "uce-template --babel src/components/to-do-item.uce -o public/components/to-do-item.uce"
+    "build:html": "uce-template --babel src -o public"
   },
   "devDependencies": {
     "serve": "^11.3.2",
-    "uce-template": "^0.1.33"
+    "uce-template": "^0.1.36"
   }
 }

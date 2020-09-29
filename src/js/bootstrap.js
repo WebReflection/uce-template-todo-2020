@@ -1,0 +1,1 @@
+uceLoader({P:'components/',T:customElements.get('uce-template'),on:function(n,x,T){if(n!='uce-template'){x=new XMLHttpRequest;T=this.T;x.open('get',this.P+n+'.uce',!0);x.send(null);x.onload=function(){document.body.appendChild(T.from(x.responseText))}}}});
