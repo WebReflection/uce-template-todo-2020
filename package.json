@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "debug": "serve -p 8080 ./src",
     "serve": "serve -p 8080 ./public",
     "build": "npm run build:uce; npm run build:html",
     "build:uce": "cp node_modules/uce-template/min.js public/js/uce-template.js",

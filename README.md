@@ -5,17 +5,22 @@ The [uce-template](https://github.com/WebReflection/uce-template#readme) version
 ## [Live Demo](https://webreflection.github.io/vue-todo-2019/public/)
 
 ### Project setup
-```
+```sh
 npm install
 ```
 
-### Compiles and minifies for production
+### Test source code
+```sh
+npm run debug
 ```
+
+### Compiles and minifies for production (public folder)
+```sh
 npm run build
 ```
 
 ### Test production
-```
+```sh
 npm run serve
 ```
 
