@@ -2,7 +2,7 @@
 
 The [uce-template](https://github.com/WebReflection/uce-template#readme) version of this well known demo.
 
-## [Live Demo](https://webreflection.github.io/vue-todo-2019/public/)
+## [Live Demo](https://webreflection.github.io/uce-template-todo-2020/public/)
 
 ### Project setup
 ```sh
